@@ -1,5 +1,5 @@
 {
-  "name": "webpack-starter-kit",
+  "name": "registerPage",
   "version": "1.1.0",
   "description": "",
   "main": "index.js",
@@ -19,7 +19,7 @@
   "bugs": {
     "url": "https://github.com/luxplanjay/webpack-starter-kit/issues"
   },
-  "homepage": "https://github.com/luxplanjay/webpack-starter-kit#readme",
+  "homepage": "https://github.com/oleksiihrushko/RegistrationTest",
   "devDependencies": {
     "@babel/core": "^7.8.7",
     "@babel/plugin-proposal-class-properties": "^7.8.3",

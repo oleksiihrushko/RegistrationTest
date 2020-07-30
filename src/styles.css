@@ -65,8 +65,7 @@ button:focus {
 }
 
 .modal {
-  display: flex;
-  /* display: none; */
+  display: none;
   justify-content: center;
   align-items: center;
   position: absolute;
@@ -100,11 +99,6 @@ p {
   margin-bottom: 10px;
   width: 150px;
 }
-
-/* span {
-  display: inline-block;
-  width: 150px;
-} */
 
 .password {
   position: relative;
