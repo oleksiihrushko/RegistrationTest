@@ -6,15 +6,15 @@ const secondPassDescr = document.querySelector('.secondPassDescr');
 const okBtn = document.querySelector('.okBtn');
 
 export const checkLogin = value => {
-  value.length > 4 && value.length < 11
+  value.match(/^[a-zA-Z][a-zA-Z0-9-_\.]{4,9}$/)
     ? validation(loginDescr)
     : unvalidation(loginDescr);
 };
 
 export const checkPass = value => {
-  value.length > 7 &&
-  value.length < 17 &&
-  value.match(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$/)
+  value.match(
+    /(?=^.{8,16}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/,
+  )
     ? validation(passDescr)
     : unvalidation(passDescr);
 };
