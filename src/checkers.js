@@ -12,7 +12,9 @@ export const checkLogin = value => {
 };
 
 export const checkPass = value => {
-  value.length > 7 && value.length < 17
+  value.length > 7 &&
+  value.length < 17 &&
+  value.match(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$/)
     ? validation(passDescr)
     : unvalidation(passDescr);
 };
