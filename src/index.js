@@ -1,4 +1,4 @@
-import './styles.css';
+import './styles.scss';
 import { checkLogin, checkPass, checkSecondPass, checkOkBtn } from './checkers';
 
 const regBtn = document.querySelector('.regBtn');
@@ -8,7 +8,9 @@ const logInInput = form.elements.logIn;
 const passInput = form.elements.password;
 const passwordRepeatInput = form.elements.passwordRepeat;
 const okBtn = form.elements.okBtn;
-const togglePassBth = document.querySelectorAll('.password-control');
+const togglePassBth = document.querySelectorAll(
+  '.modal__form--password-control',
+);
 
 okBtn.disabled = true;
 
@@ -24,6 +26,7 @@ const handleChange = e => {
       break;
     case 'password':
       checkPass(e.target.value);
+      checkSecondPass(passwordRepeatInput.value, passInput.value);
       break;
     case 'passwordRepeat':
       checkSecondPass(e.target.value, passInput.value);
@@ -40,10 +43,9 @@ const handleOk = e => {
 };
 
 function show_hide_password({ target }) {
-  let input = target.classList.contains('togglePasswordRepeat')
-    ? passwordRepeatInput
-    : passInput;
-  if (input.getAttribute('type') == 'password') {
+  let input = document.querySelector(`.${target.name}`);
+
+  if (input.getAttribute('type') === 'password') {
     target.classList.add('view');
     input.setAttribute('type', 'text');
   } else {

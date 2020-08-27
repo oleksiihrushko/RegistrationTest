@@ -1,28 +1,32 @@
 import { validation, unvalidation } from './validators';
 
-const loginDescr = document.querySelector('.loginDescr');
-const passDescr = document.querySelector('.passDescr');
-const secondPassDescr = document.querySelector('.secondPassDescr');
-const okBtn = document.querySelector('.okBtn');
+const loginDescr = document.querySelector('.modal__form--loginDescr');
+const passDescr = document.querySelector('.modal__form--passDescr');
+const secondPassDescr = document.querySelector('.modal__form--secondPassDescr');
+const okBtn = document.querySelector('.modal__form--okBtn');
 
 export const checkLogin = value => {
-  value.match(/^[a-zA-Z][a-zA-Z0-9-_\.]{4,9}$/)
-    ? validation(loginDescr)
-    : unvalidation(loginDescr);
+  if (value.match(/^[a-zA-Z][a-zA-Z0-9\.]{4,9}$/)) {
+    validation(loginDescr);
+  } else {
+    unvalidation(loginDescr);
+  }
 };
 
 export const checkPass = value => {
-  value.match(
-    /(?=^.{8,16}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/,
-  )
-    ? validation(passDescr)
-    : unvalidation(passDescr);
+  if (value.match(/(?=.*\d)(?=.*[a-zа-я])(?=.*[A-Zа-я]).{8,}/)) {
+    validation(passDescr);
+  } else {
+    unvalidation(passDescr);
+  }
 };
 
 export const checkSecondPass = (firstPass, secondPass) => {
-  firstPass === secondPass
-    ? validation(secondPassDescr)
-    : unvalidation(secondPassDescr);
+  if (firstPass === secondPass) {
+    validation(secondPassDescr);
+  } else {
+    unvalidation(secondPassDescr);
+  }
 };
 
 export const checkOkBtn = () => {
